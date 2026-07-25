@@ -1,31 +1,36 @@
 # InsightFlow AI
 
-InsightFlow AI is a full-stack business intelligence platform that combines interactive dashboards with AI-powered analytics. Users can upload CSV or Excel datasets, explore business performance through visualizations, generate machine learning insights, and interact with a local AI assistant powered by Ollama.
+InsightFlow AI is a full-stack Business Intelligence platform that combines interactive dashboards with AI-powered analytics. It enables users to upload business datasets, visualize key metrics, discover trends through machine learning, and interact with an AI Copilot using natural language.
 
-The platform is designed to simplify business analysis by bringing data processing, visualization, forecasting, reporting, and natural language querying into a single application.
+The goal of the project is to bring business analytics, visualization, forecasting, and AI-driven insights into a single platform that is easy to use and extend.
 
 ---
 
 ## Features
 
 ### Authentication
+
 - User Registration
 - Secure Login
 
 ### Data Management
-- Upload CSV & Excel files
+
+- Upload CSV and Excel datasets
 - Automatic data cleaning
 - Dataset management
 
-### Analytics Dashboard
+### Business Dashboard
+
 - KPI Cards
 - Revenue Analysis
 - Profit Analysis
-- Category Performance
+- Sales Trends
+- Product Performance
 - Regional Performance
 - Customer Insights
 
-### Visualizations
+### Data Visualization
+
 - Line Charts
 - Bar Charts
 - Pie Charts
@@ -33,19 +38,23 @@ The platform is designed to simplify business analysis by bringing data processi
 - Heatmap
 - Sankey Diagram
 - Funnel Chart
+- Interactive Geographic Map
 
 ### Machine Learning
+
 - Customer Segmentation
 - Anomaly Detection
 - Revenue Forecasting
 
 ### AI Copilot
+
 - Natural Language Queries
 - Business Insights
 - Business Recommendations
-- Local LLM powered by Ollama
+- Local AI powered by Ollama
 
 ### Reports
+
 - Download Business Reports
 
 ---
@@ -53,6 +62,7 @@ The platform is designed to simplify business analysis by bringing data processi
 ## Technology Stack
 
 ### Frontend
+
 - React
 - Vite
 - Tailwind CSS
@@ -60,17 +70,20 @@ The platform is designed to simplify business analysis by bringing data processi
 - React Simple Maps
 
 ### Backend
+
 - FastAPI
 - Python
 - SQLAlchemy
 - Pandas
 - PostgreSQL
 
-### AI
+### Artificial Intelligence
+
 - Ollama
 - Llama 3.1
 
 ### Development Tools
+
 - Git
 - GitHub
 - VS Code
@@ -80,50 +93,142 @@ The platform is designed to simplify business analysis by bringing data processi
 ## Project Structure
 
 ```text
-InsightFlow_AI/
+InsightFlow_AI
 │
-├── backend/
-├── frontend/
-├── datasets/
-├── reports/
-├── screenshots/
-└── README.md
+├── backend
+├── frontend
+├── datasets
+├── reports
+├── screenshots
+├── LICENSE
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## Getting Started
+## Prerequisites
 
-### Clone the Repository
+Before running the project, install the following software:
+
+- Python 3.11 or later
+- Node.js
+- PostgreSQL
+- Ollama
+
+Download the AI model:
+
+```bash
+ollama pull llama3.1
+```
+
+---
+
+## Installation
+
+Clone the repository.
 
 ```bash
 git clone https://github.com/maheshdamam/InsightFlow_AI.git
+```
+
+Move into the project folder.
+
+```bash
 cd InsightFlow_AI
 ```
 
-### Backend
+---
+
+## Backend Setup
+
+Move to the backend folder.
 
 ```bash
 cd backend
+```
 
+Create a virtual environment.
+
+```bash
 python -m venv venv
+```
 
+Activate the virtual environment.
+
+### Windows
+
+```bash
 venv\Scripts\activate
+```
 
+### macOS / Linux
+
+```bash
+source venv/bin/activate
+```
+
+Install the required packages.
+
+```bash
 pip install -r requirements.txt
+```
 
+Start the FastAPI server.
+
+```bash
 uvicorn app.main:app --reload
 ```
 
-### Frontend
+Backend API
+
+```
+http://127.0.0.1:8000
+```
+
+Swagger Documentation
+
+```
+http://127.0.0.1:8000/api/docs
+```
+
+---
+
+## Frontend Setup
+
+Open another terminal.
+
+Move into the frontend folder.
 
 ```bash
 cd frontend
+```
 
+Install dependencies.
+
+```bash
 npm install
+```
 
+Start the development server.
+
+```bash
 npm run dev
 ```
+
+Open the URL shown in the terminal (usually http://localhost:5173).
+
+---
+
+## Using the Application
+
+1. Register a new account.
+2. Log in to the application.
+3. Upload a CSV or Excel dataset.
+4. Explore dashboards and interactive charts.
+5. View machine learning insights.
+6. Ask business questions using the AI Copilot.
+7. Download reports.
 
 ---
 
@@ -155,14 +260,30 @@ npm run dev
 
 ---
 
-## Future Improvements
+## Roadmap
 
-- Role-based access control
-- Real-time analytics
+Planned improvements include:
+
+- Role-based authentication
 - Cloud deployment
+- Real-time analytics
+- Multiple database support
 - Advanced forecasting models
 - RAG-based document intelligence
-- Multiple database integrations
+- Export to PowerPoint and PDF
+- Dashboard customization
+
+---
+
+## Contributing
+
+Contributions, suggestions, and improvements are welcome. Feel free to open an issue or submit a pull request.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
 
 ---
 
