@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+  body {
+    @apply bg-surface text-slate-700 antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+  }
+  ::selection {
+    @apply bg-gold-400/40;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl border border-teal-100 shadow-sm;
+  }
+  .btn-primary {
+    @apply bg-ink-light hover:bg-teal-700 text-white font-medium px-4 py-2.5 rounded-lg transition-colors duration-150;
+  }
+  .btn-secondary {
+    @apply bg-white hover:bg-teal-50 text-ink-light border border-teal-100 font-medium px-4 py-2.5 rounded-lg transition-colors duration-150;
+  }
+  .input-field {
+    @apply w-full border border-teal-100 rounded-lg px-3.5 py-2.5 text-slate-700 placeholder-slate-500/60 focus:outline-none focus:ring-2 focus:ring-teal-400/50 focus:border-teal-400 transition-shadow;
+  }
+  .data-figure {
+    @apply font-mono tabular-nums;
+  }
+}

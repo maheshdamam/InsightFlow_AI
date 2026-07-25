@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+*.egg-info/
+.env
+
+# Databases
+*.db
+*.sqlite3
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Uploaded datasets (runtime data, not source)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# RAG vector indices (runtime data, rebuilt on upload)
+backend/vector_store/
+
+# Generated reports (runtime output, not source)
+reports/*
+!reports/.gitkeep
+
+# cmdstan build artifacts, if installed locally
+.cmdstan/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
