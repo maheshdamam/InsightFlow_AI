@@ -17,14 +17,14 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-    "http://localhost:3000",
-    "https://insight-flow-ai-indol.vercel.app",
+        "http://localhost:3000",
+        "https://insight-flow-ai-indol.vercel.app",
+        "https://insight-flow-jr8zcxq75-mahesh-b9c6.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 @app.on_event("startup")
 def on_startup():
