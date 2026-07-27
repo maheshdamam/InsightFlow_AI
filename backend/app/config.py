@@ -15,10 +15,8 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
 
     # AI
-    OPENAI_API_KEY: str = ""
-    OLLAMA_BASE_URL: str = "http://localhost:11434"
-    AI_PROVIDER: str = "ollama"  # "ollama" or "openai"
-
+    GEMINI_API_KEY: str = ""
+    AI_PROVIDER: str = "gemini"   # gemini
     # App
     UPLOAD_DIR: str = "uploads"
     ENV: str = "development"

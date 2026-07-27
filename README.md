@@ -5,6 +5,16 @@ InsightFlow AI is a full-stack Business Intelligence platform that combines inte
 The goal of the project is to bring business analytics, visualization, forecasting, and AI-driven insights into a single platform that is easy to use and extend.
 
 ---
+## Live Demo
+
+Frontend:
+https://your-vercel-link.vercel.app
+
+Backend API:
+https://your-render-link.onrender.com
+
+Swagger Docs:
+https://your-render-link.onrender.com/api/docs
 
 ## Features
 
@@ -48,10 +58,11 @@ The goal of the project is to bring business analytics, visualization, forecasti
 
 ### AI Copilot
 
-- Natural Language Queries
-- Business Insights
-- Business Recommendations
-- Local AI powered by Ollama
+- Natural Language Business Queries
+- AI-Powered Business Insights
+- Actionable Recommendations
+- Context-Aware Dataset Analysis
+- Powered by Google Gemini 2.5 Flash
 
 ### Reports
 
@@ -79,8 +90,8 @@ The goal of the project is to bring business analytics, visualization, forecasti
 
 ### Artificial Intelligence
 
-- Ollama
-- Llama 3.1
+- Google Gemini 2.5 Flash
+- Retrieval-Augmented Context (TF-IDF)
 
 ### Development Tools
 
@@ -114,13 +125,8 @@ Before running the project, install the following software:
 - Python 3.11 or later
 - Node.js
 - PostgreSQL
-- Ollama
+Google AI Studio API Key
 
-Download the AI model:
-
-```bash
-ollama pull llama3.1
-```
 
 ---
 
@@ -147,7 +153,6 @@ Move to the backend folder.
 ```bash
 cd backend
 ```
-
 Create a virtual environment.
 
 ```bash
@@ -174,7 +179,22 @@ Install the required packages.
 pip install -r requirements.txt
 ```
 
+## Environment Variables
+
+Create a `.env` file inside the `backend` folder and add the following:
+
+```env
+GEMINI_API_KEY=your_api_key_here
+AI_PROVIDER=gemini
+DATABASE_URL=your_database_url
+SECRET_KEY=your_secret_key
+```
+
 Start the FastAPI server.
+
+```bash
+uvicorn app.main:app --reload
+```
 
 ```bash
 uvicorn app.main:app --reload
@@ -265,7 +285,6 @@ Open the URL shown in the terminal (usually http://localhost:5173).
 Planned improvements include:
 
 - Role-based authentication
-- Cloud deployment
 - Real-time analytics
 - Multiple database support
 - Advanced forecasting models
@@ -292,3 +311,4 @@ This project is licensed under the MIT License.
 **Mahesh Damam**
 
 GitHub: https://github.com/maheshdamam
+

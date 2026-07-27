@@ -49,7 +49,7 @@ def _build_context(df: pd.DataFrame) -> Dict[str, Any]:
     }
 
 
-def _call_ollama(question: str, context: Dict[str, Any], retrieved_rows: List[str]) -> str:
+def _call_gemini(question: str, context: Dict[str, Any], retrieved_rows: List[str]) -> str:
     import json
     import requests
 
@@ -87,8 +87,8 @@ Question:
 
     return data["response"]
 
-def _call_openai(question: str, context: Dict[str, Any], retrieved_rows: List[str]) -> str:
-    from openai import OpenAI
+def _call_gemini(question: str, context: Dict[str, Any], retrieved_rows: List[str]) -> str:
+    import google.generativeai as genai
 
     retrieved_block = (
         "\n".join(f"- {row}" for row in retrieved_rows)
@@ -96,22 +96,26 @@ def _call_openai(question: str, context: Dict[str, Any], retrieved_rows: List[st
         else "(no specific rows retrieved for this question)"
     )
 
-    client = OpenAI(api_key=settings.OPENAI_API_KEY)
-    completion = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {
-                "role": "user",
-                "content": (
-                    f"Data context:\n{json.dumps(context, indent=2)}\n\n"
-                    f"Retrieved rows:\n{retrieved_block}\n\n"
-                    f"Question: {question}"
-                ),
-            },
-        ],
-    )
-    return completion.choices[0].message.content.strip()
+    genai.configure(api_key=settings.GEMINI_API_KEY)
+
+    model = genai.GenerativeModel("gemini-2.5-flash")
+
+    prompt = f"""
+{SYSTEM_PROMPT}
+
+Data Context:
+{json.dumps(context, indent=2)}
+
+Retrieved Rows:
+{retrieved_block}
+
+Question:
+{question}
+"""
+
+    response = model.generate_content(prompt)
+
+    return response.text
 
 
 def ask_copilot(df: pd.DataFrame, question: str, dataset_id: str = None) -> Dict[str, Any]:
@@ -121,11 +125,10 @@ def ask_copilot(df: pd.DataFrame, question: str, dataset_id: str = None) -> Dict
     retrieved_rows = retrieve_relevant_rows(dataset_id, question, top_k=8) if dataset_id else []
 
     try:
-        if settings.AI_PROVIDER == "openai" and settings.OPENAI_API_KEY:
-            answer = _call_openai(question, context, retrieved_rows)
+        if settings.AI_PROVIDER == "gemini" and settings.GEMINI_API_KEY:
+            answer = _call_gemini(question, context, retrieved_rows)
         else:
             answer = _call_ollama(question, context, retrieved_rows)
-
     except Exception as exc:
         # Print the complete error in the Uvicorn terminal
         print("\n" + "=" * 80)
