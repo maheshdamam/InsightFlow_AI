@@ -96,7 +96,7 @@ def _call_gemini(question: str, context: Dict[str, Any], retrieved_rows: List[st
         if retrieved_rows
         else "(no specific rows retrieved)"
     )
-    
+
     prompt = f"""
 {SYSTEM_PROMPT}
 
@@ -113,7 +113,7 @@ Question:
     client = genai.Client(api_key=settings.GEMINI_API_KEY)
 
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-flash-latest",
         contents=prompt,
     )
 
