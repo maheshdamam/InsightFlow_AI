@@ -122,21 +122,25 @@ def ask_copilot(df: pd.DataFrame, question: str, dataset_id: str = None) -> Dict
     import traceback
 
     context = _build_context(df)
-    retrieved_rows = retrieve_relevant_rows(dataset_id, question, top_k=8) if dataset_id else []
+    retrieved_rows = (
+        retrieve_relevant_rows(dataset_id, question, top_k=8)
+        if dataset_id
+        else []
+    )
 
     try:
         answer = _call_gemini(question, context, retrieved_rows)
 
     except Exception as exc:
         print("\n" + "=" * 80)
-    print("AI COPILOT ERROR")
-    traceback.print_exc()
-    print("=" * 80 + "\n")
+        print("AI COPILOT ERROR")
+        traceback.print_exc()
+        print("=" * 80 + "\n")
 
-    answer = (
-        f"AI Error: {type(exc).__name__}\n\n"
-        f"{str(exc)}"
-    )
+        answer = (
+            f"AI Error: {type(exc).__name__}\n\n"
+            f"{str(exc)}"
+        )
 
     return {
         "answer": answer,
