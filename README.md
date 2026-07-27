@@ -1,35 +1,55 @@
 # InsightFlow AI
 
-InsightFlow AI is a full-stack Business Intelligence platform that combines interactive dashboards with AI-powered analytics. It enables users to upload business datasets, visualize key metrics, discover trends through machine learning, and interact with an AI Copilot using natural language.
-
-The goal of the project is to bring business analytics, visualization, forecasting, and AI-driven insights into a single platform that is easy to use and extend.
+An AI-powered Business Intelligence platform that transforms raw business data into interactive dashboards, machine learning insights, forecasts, and natural language business recommendations using FastAPI, React, PostgreSQL, and Google Gemini.
 
 ---
+
 ## Live Demo
 
 ### Frontend
+
 https://insight-flow-ai-indol.vercel.app
 
 ### Backend API
+
 https://insightflow-ai-ttuh.onrender.com
 
 ### API Documentation
+
 https://insightflow-ai-ttuh.onrender.com/docs
 
-## Features
+---
 
-### Authentication
+# Key Highlights
+
+- Full-Stack Business Intelligence Platform
+- AI Business Copilot powered by Google Gemini
+- Interactive Dashboards
+- Machine Learning Insights
+- Revenue Forecasting
+- Retrieval-Augmented AI Responses
+- Secure Authentication
+- Responsive User Interface
+- Cloud Deployment with Vercel & Render
+
+---
+
+# Features
+
+## Authentication
 
 - User Registration
 - Secure Login
+- JWT Authentication
 
-### Data Management
+## Data Management
 
-- Upload CSV and Excel datasets
-- Automatic data cleaning
-- Dataset management
+- Upload CSV datasets
+- Upload Excel datasets
+- Automatic Data Cleaning
+- Dataset Management
 
-### Business Dashboard
+## Business Dashboard
 
 - KPI Cards
 - Revenue Analysis
@@ -39,40 +59,40 @@ https://insightflow-ai-ttuh.onrender.com/docs
 - Regional Performance
 - Customer Insights
 
-### Data Visualization
+## Interactive Visualizations
 
 - Line Charts
 - Bar Charts
 - Pie Charts
 - Treemap
 - Heatmap
-- Sankey Diagram
 - Funnel Chart
-- Interactive Geographic Map
+- Sankey Diagram
+- Geographic Maps
 
-### Machine Learning
+## Machine Learning
 
 - Customer Segmentation
 - Anomaly Detection
 - Revenue Forecasting
 
-### AI Copilot
+## AI Business Copilot
 
 - Natural Language Business Queries
-- AI-Powered Business Insights
-- Actionable Recommendations
+- AI Business Recommendations
 - Context-Aware Dataset Analysis
-- Powered by Google Gemini 2.5 Flash
+- Retrieval-Augmented Responses
+- Powered by Google Gemini API
 
-### Reports
+## Reports
 
 - Download Business Reports
 
 ---
 
-## Technology Stack
+# Technology Stack
 
-### Frontend
+## Frontend
 
 - React
 - Vite
@@ -80,7 +100,7 @@ https://insightflow-ai-ttuh.onrender.com/docs
 - Plotly
 - React Simple Maps
 
-### Backend
+## Backend
 
 - FastAPI
 - Python
@@ -88,12 +108,13 @@ https://insightflow-ai-ttuh.onrender.com/docs
 - Pandas
 - PostgreSQL
 
-### Artificial Intelligence
+## Artificial Intelligence
 
-- Google Gemini 2.5 Flash
-- Retrieval-Augmented Context (TF-IDF)
+- Google Gemini API
+- Retrieval-Augmented Generation (RAG)
+- TF-IDF Retrieval
 
-### Development Tools
+## Development Tools
 
 - Git
 - GitHub
@@ -101,36 +122,66 @@ https://insightflow-ai-ttuh.onrender.com/docs
 
 ---
 
-## Project Structure
+# Architecture
+
+```
+User
+   │
+   ▼
+React Frontend
+   │
+   ▼
+FastAPI Backend
+   │
+   ├── Authentication
+   ├── Analytics Engine
+   ├── Machine Learning
+   ├── AI Copilot
+   │
+   ▼
+PostgreSQL Database
+```
+
+---
+
+# Project Structure
 
 ```text
 InsightFlow_AI
 │
 ├── backend
+│   ├── app
+│   ├── uploads
+│   ├── vector_store
+│   ├── requirements.txt
+│   └── .env.example
+│
 ├── frontend
-├── datasets
-├── reports
+│   ├── src
+│   ├── public
+│   └── package.json
+│
 ├── screenshots
-├── LICENSE
 ├── README.md
+├── LICENSE
 └── .gitignore
 ```
 
 ---
 
-## Prerequisites
+# Prerequisites
 
-Before running the project, install the following software:
+Install the following software before running the project.
 
 - Python 3.11 or later
 - Node.js
 - PostgreSQL
-Google AI Studio API Key
-
+- Git
+- Google AI Studio API Key
 
 ---
 
-## Installation
+# Installation
 
 Clone the repository.
 
@@ -138,7 +189,7 @@ Clone the repository.
 git clone https://github.com/maheshdamam/InsightFlow_AI.git
 ```
 
-Move into the project folder.
+Move into the project.
 
 ```bash
 cd InsightFlow_AI
@@ -146,20 +197,21 @@ cd InsightFlow_AI
 
 ---
 
-## Backend Setup
+# Backend Setup
 
 Move to the backend folder.
 
 ```bash
 cd backend
 ```
+
 Create a virtual environment.
 
 ```bash
 python -m venv venv
 ```
 
-Activate the virtual environment.
+Activate the environment.
 
 ### Windows
 
@@ -173,28 +225,29 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-Install the required packages.
+Install dependencies.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Environment Variables
+---
 
-Create a `.env` file inside the `backend` folder and add the following:
+# Environment Variables
+
+Create a file named `.env` inside the `backend` folder.
 
 ```env
 GEMINI_API_KEY=your_api_key_here
 AI_PROVIDER=gemini
 DATABASE_URL=your_database_url
 SECRET_KEY=your_secret_key
+ENV=development
 ```
 
-Start the FastAPI server.
+---
 
-```bash
-uvicorn app.main:app --reload
-```
+Start the backend server.
 
 ```bash
 uvicorn app.main:app --reload
@@ -209,12 +262,12 @@ http://127.0.0.1:8000
 Swagger Documentation
 
 ```
-http://127.0.0.1:8000/api/docs
+http://127.0.0.1:8000/docs
 ```
 
 ---
 
-## Frontend Setup
+# Frontend Setup
 
 Open another terminal.
 
@@ -230,85 +283,95 @@ Install dependencies.
 npm install
 ```
 
-Start the development server.
+Run the development server.
 
 ```bash
 npm run dev
 ```
 
-Open the URL shown in the terminal (usually http://localhost:5173).
+Open
+
+```
+http://localhost:5173
+```
 
 ---
 
-## Using the Application
+# Using InsightFlow AI
 
 1. Register a new account.
-2. Log in to the application.
+2. Log in.
 3. Upload a CSV or Excel dataset.
-4. Explore dashboards and interactive charts.
-5. View machine learning insights.
+4. Explore interactive dashboards.
+5. Analyze machine learning insights.
 6. Ask business questions using the AI Copilot.
 7. Download reports.
 
 ---
 
-## Application Preview
+# Application Preview
 
-### Login
+## Login
 
 ![Login](screenshots/login.png)
 
-### Dashboard Overview
+## Dashboard
 
-![Dashboard Overview](screenshots/dashboard-overview.png)
+![Dashboard](screenshots/dashboard-overview.png)
 
-### Analytics Dashboard
+## Analytics
 
-![Analytics Dashboard](screenshots/dashboard-charts.png)
+![Analytics](screenshots/dashboard-charts.png)
 
-### Machine Learning Insights
+## Machine Learning
 
-![Machine Learning Insights](screenshots/ml-insights.png)
+![Machine Learning](screenshots/ml-insights.png)
 
-### AI Copilot
+## AI Copilot
 
 ![AI Copilot](screenshots/ai-copilot.png)
 
-### Reports
+## Reports
 
 ![Reports](screenshots/download-reports.png)
 
 ---
 
-## Roadmap
+# Roadmap
 
-Planned improvements include:
+Future improvements include:
 
-- Role-based authentication
-- Real-time analytics
-- Multiple database support
-- Advanced forecasting models
-- RAG-based document intelligence
-- Export to PowerPoint and PDF
-- Dashboard customization
-
----
-
-## Contributing
-
-Contributions, suggestions, and improvements are welcome. Feel free to open an issue or submit a pull request.
+- Role-Based Access Control
+- Real-Time Analytics
+- Dashboard Customization
+- PDF Report Generation
+- PowerPoint Export
+- Advanced Forecasting Models
+- Multi-Database Support
+- Multi-Model AI Support
+- Conversation History
+- Streaming AI Responses
 
 ---
 
-## License
+# Contributing
+
+Contributions are welcome.
+
+Feel free to fork the repository, open issues, or submit pull requests to improve InsightFlow AI.
+
+---
+
+# License
 
 This project is licensed under the MIT License.
 
 ---
 
-## Author
+# Author
 
 **Mahesh Damam**
 
-GitHub: https://github.com/maheshdamam
+GitHub
 
+https://github.com/maheshdamam
