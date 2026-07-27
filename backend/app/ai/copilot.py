@@ -125,22 +125,18 @@ def ask_copilot(df: pd.DataFrame, question: str, dataset_id: str = None) -> Dict
     retrieved_rows = retrieve_relevant_rows(dataset_id, question, top_k=8) if dataset_id else []
 
     try:
-        if settings.AI_PROVIDER == "gemini" and settings.GEMINI_API_KEY:
-            answer = _call_gemini(question, context, retrieved_rows)
-        else:
-            answer = _call_ollama(question, context, retrieved_rows)
-    except Exception as exc:
-        # Print the complete error in the Uvicorn terminal
-        print("\n" + "=" * 80)
-        print("AI COPILOT ERROR")
-        traceback.print_exc()
-        print("=" * 80 + "\n")
+        answer = _call_gemini(question, context, retrieved_rows)
 
-        # Return the actual error to the frontend
-        answer = (
-            f"AI Error: {type(exc).__name__}\n\n"
-            f"{str(exc)}"
-        )
+    except Exception as exc:
+        print("\n" + "=" * 80)
+    print("AI COPILOT ERROR")
+    traceback.print_exc()
+    print("=" * 80 + "\n")
+
+    answer = (
+        f"AI Error: {type(exc).__name__}\n\n"
+        f"{str(exc)}"
+    )
 
     return {
         "answer": answer,
