@@ -88,17 +88,15 @@ Question:
     return data["response"]
 
 def _call_gemini(question: str, context: Dict[str, Any], retrieved_rows: List[str]) -> str:
-    import google.generativeai as genai
+    from google import genai
+    import json
 
     retrieved_block = (
         "\n".join(f"- {row}" for row in retrieved_rows)
         if retrieved_rows
-        else "(no specific rows retrieved for this question)"
+        else "(no specific rows retrieved)"
     )
-
-    genai.configure(api_key=settings.GEMINI_API_KEY)
-
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    
     prompt = f"""
 {SYSTEM_PROMPT}
 
@@ -112,7 +110,12 @@ Question:
 {question}
 """
 
-    response = model.generate_content(prompt)
+    client = genai.Client(api_key=settings.GEMINI_API_KEY)
+
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=prompt,
+    )
 
     return response.text
 
