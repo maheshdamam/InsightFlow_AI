@@ -7,14 +7,14 @@ The goal of the project is to bring business analytics, visualization, forecasti
 ---
 ## Live Demo
 
-Frontend:
-https://your-vercel-link.vercel.app
+### Frontend
+https://insight-flow-ai-indol.vercel.app
 
-Backend API:
-https://your-render-link.onrender.com
+### Backend API
+https://insightflow-ai-ttuh.onrender.com
 
-Swagger Docs:
-https://your-render-link.onrender.com/api/docs
+### API Documentation
+https://insightflow-ai-ttuh.onrender.com/docs
 
 ## Features
 
