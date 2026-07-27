@@ -98,8 +98,7 @@ def _call_gemini(question: str, context: Dict[str, Any], retrieved_rows: List[st
 
     genai.configure(api_key=settings.GEMINI_API_KEY)
 
-    model = genai.GenerativeModel("gemini-2.5-flash")
-
+    model = genai.GenerativeModel("gemini-2.0-flash")
     prompt = f"""
 {SYSTEM_PROMPT}
 
