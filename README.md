@@ -16,7 +16,7 @@ https://insightflow-ai-ttuh.onrender.com
 
 ### API Documentation
 
-https://insightflow-ai-ttuh.onrender.com/docs
+Available in the local development environment.
 
 ---
 
