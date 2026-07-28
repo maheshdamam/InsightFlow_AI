@@ -96,7 +96,7 @@ export default function Login() {
           </p>
 
           <p className="text-xs text-slate-500/70 mt-8">
-            Demo admin: <span className="font-mono">admin@insightflow.ai</span> / ChangeMe123!
+            
           </p>
         </div>
       </div>
