@@ -344,8 +344,6 @@ Future improvements include:
 - Role-Based Access Control
 - Real-Time Analytics
 - Dashboard Customization
-- PDF Report Generation
-- PowerPoint Export
 - Advanced Forecasting Models
 - Multi-Database Support
 - Multi-Model AI Support
